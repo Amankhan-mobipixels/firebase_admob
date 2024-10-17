@@ -1,0 +1,4 @@
+enum BannerAdType {
+  Banner,
+  CollapsibleBanner
+}

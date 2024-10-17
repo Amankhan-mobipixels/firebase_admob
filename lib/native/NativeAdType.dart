@@ -1,0 +1,4 @@
+enum NativeAdType {
+  NativeSmall,
+  NativeAdvance
+}
