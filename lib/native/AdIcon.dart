@@ -1,4 +1,0 @@
-enum AdIcon {
-  black,
-  white
-}

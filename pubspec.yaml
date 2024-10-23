@@ -1,13 +1,6 @@
 name: mobi_firebase_admob
-description: "Flutter Plugin for Ads, Firebase, and In-App Features
-This plugin integrates powerful tools to enhance your app’s monetization and user engagement. It includes:
-AdMob Ads: Display native, banner, and interstitial ads to monetize your app effectively.
-Firebase Integration:
-Push notifications for real-time communication.
-Remote Config to dynamically change app behavior.
-In-App updates with Remote Config for seamless app upgrades.
-In-App Review: Enable users to rate your app directly within the app interface."
-version: 0.0.1
+description: "Flutter Plugin for Admob Ads, Firebase Crashlytics, Analytics, Messaging/Push notification, Custom Event and InAppUpdate, InAppReview Features."
+version: 0.0.6
 homepage: https://github.com/Amankhan-mobipixels/firebase_admob.git
 
 environment:
@@ -17,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  plugin_platform_interface: ^2.1.8
 
 dev_dependencies:
   flutter_test:

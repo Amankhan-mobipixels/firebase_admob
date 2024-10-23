@@ -12,14 +12,28 @@ import com.example.mobipixels_flutter.AdsInterstitial.showInterstitial
 import io.flutter.embedding.engine.plugins.activity.ActivityAware
 import android.app.Activity
 import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding
+import android.content.Context
+
+import com.mobi.pixels.firebase.fireEvent
+
+import com.mobi.pixels.firebase.initializeFirebaseMessaging
+
+import com.mobi.pixels.inAppReview
+
+import com.mobi.pixels.updateApp
+import com.mobi.pixels.enums.UpdateType
+
+import com.mobi.pixels.openAd.InitializeOpenAd
 
 class MobiFirebaseAdmobPlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
   private lateinit var channel : MethodChannel
   private var activity: Activity? = null
+  private var applicationContext: Context? = null
   private var flutterPluginBinding: FlutterPlugin.FlutterPluginBinding? = null
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
     this.flutterPluginBinding = flutterPluginBinding
+    applicationContext = flutterPluginBinding.applicationContext
     channel = MethodChannel(flutterPluginBinding.binaryMessenger, "firebase_admob")
     channel.setMethodCallHandler(this)
 
@@ -30,11 +44,39 @@ class MobiFirebaseAdmobPlugin:FlutterPlugin, MethodCallHandler, ActivityAware {
     when (call.method) {
       "loadInterstitial" -> {
         val id = call.argument<String>("id") ?: ""
-        loadInterstitial(activity!!,id)
+        loadInterstitial(activity!!, id)
       }
+
       "showInterstitial" -> {
         showInterstitial(activity!!)
 
+      }
+
+      "fireEvent" -> {
+        val name = call.argument<String>("eventName") ?: ""
+        fireEvent(name)
+      }
+
+      "initializeFirebaseMessaging" -> {
+        val name = call.argument<String>("topicName") ?: ""
+        activity!!.initializeFirebaseMessaging(name)
+      }
+
+      "inAppReview" -> {
+        activity!!.inAppReview()
+      }
+      "updateApp" -> {
+        val type = call.argument<Int>("updateType") ?: 1
+        if (type==0) activity!!.updateApp(UpdateType.Flexible)
+        else activity!!.updateApp(UpdateType.Force)
+      }
+      "InitializeOpenAd" -> {
+        val id = call.argument<String>("id") ?: ""
+        val name = call.argument<String>("screenName") ?: ""
+        android.util.Log.d("fdj8f3fdd",id)
+        android.util.Log.d("fdj8f3fdd",name)
+        android.util.Log.d("fdj8f3fdd",applicationContext!!.toString())
+        InitializeOpenAd(applicationContext!!,id,name)
       }
     }
   }

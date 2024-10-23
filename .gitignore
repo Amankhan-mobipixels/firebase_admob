@@ -27,3 +27,5 @@ migrate_working_dir/
 **/doc/api/
 .dart_tool/
 build/
+#ignoring service.json to upload
+example/android/app/src/google-services.json
