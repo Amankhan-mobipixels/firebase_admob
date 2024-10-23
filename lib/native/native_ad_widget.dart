@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'ad_Icon.dart';
+import 'ad_icon.dart';
 import 'native_ad_type.dart';
 import 'native_shimmer_color.dart';
-
 
 /// A widget that displays a native ad with various customizable options.
 class NativeAdWidget extends StatelessWidget {
@@ -147,4 +146,3 @@ class NativeAdWidget extends StatelessWidget {
     );
   }
 }
-

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'banner_ad_type.dart';
 import 'banner_shimmer_color.dart';
+
 /// A widget that displays a banner ad using an Android platform view.
 ///
 /// [BannerAdWidget] can display different types of banner ads

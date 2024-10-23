@@ -1,6 +1,6 @@
 name: mobi_firebase_admob
 description: "Flutter Plugin for Admob Ads, Firebase Crashlytics, Analytics, Messaging/Push notification, Custom Event and InAppUpdate, InAppReview Features."
-version: 0.0.6
+version: 0.0.8
 homepage: https://github.com/Amankhan-mobipixels/firebase_admob.git
 
 environment:

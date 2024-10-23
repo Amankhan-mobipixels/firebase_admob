@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:mobi_firebase_admob/banner/banner_ad_type.dart';
@@ -9,12 +8,11 @@ import 'package:mobi_firebase_admob/inAppReview/in_app_review.dart';
 import 'package:mobi_firebase_admob/initializeOpenAd/initialize_open_ad.dart';
 import 'package:mobi_firebase_admob/interstitial/interstitial_ad.dart';
 
-import 'package:mobi_firebase_admob/native/ad_Icon.dart';
+import 'package:mobi_firebase_admob/native/ad_icon.dart';
 import 'package:mobi_firebase_admob/native/native_ad_type.dart';
 import 'package:mobi_firebase_admob/native/native_ad_widget.dart';
 import 'package:mobi_firebase_admob/native/native_shimmer_color.dart';
-import 'package:mobi_firebase_admob/updateApp/updateApp.dart';
-
+import 'package:mobi_firebase_admob/updateApp/update_app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +26,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-
   final AdInterstitial ad = AdInterstitial();
 
   @override
@@ -37,7 +34,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     SchedulerBinding.instance.addPostFrameCallback((a) {
       ad.load("ca-app-pub-3940256099942544/1033173712");
       initializeFirebaseMessaging("mobi");
-      initializeOpenAd("ca-app-pub-3940256099942544/9257395921","splash");
+      initializeOpenAd("ca-app-pub-3940256099942544/9257395921", "splash");
       inAppReview();
       updateApp();
     });
